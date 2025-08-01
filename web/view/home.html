@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookBase</title>
+    <link rel="stylesheet" href="css/home-style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+    <div class="header-left">
+        <div class="logo">
+            <span class="logo-icon">🏠</span>
+            <span class="logo-text">BookBase</span>
+        </div>
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search your favourite books">
+            <span class="search-icon">🔍</span>
+        </div>
+    </div>
+    <div class="header-right">
+        <div class="notification">
+            <span class="notification-icon">🔔</span>
+            <span class="notification-badge">3</span>
+        </div>
+        <div class="user-profile">
+            <img src="https://via.placeholder.com/40x40/4A90E2/FFFFFF?text=B" alt="User" class="user-avatar">
+            <span class="username">Balogun</span>
+            <span class="dropdown-arrow">▼</span>
+        </div>
+    </div>
+</header>
+        
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+    
+    <nav class="sidebar-nav">
+        <ul class="nav-list">
+            <li class="nav-item active">
+                <a href="#" class="nav-link">
+                    <span class="nav-icon">🏠</span>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <span class="nav-icon">➕</span>
+                    <span class="nav-text">Add Customer</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <span class="nav-icon">✏️</span>
+                    <span class="nav-text">Edit Customer</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <span class="nav-icon">📚</span>
+                    <span class="nav-text">Manage Items</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <span class="nav-icon">📋</span>
+                    <span class="nav-text">Display Accounts</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <span class="nav-icon">💸</span>
+                    <span class="nav-text">Calculate Bill</span>
+                </a>
+            </li>
+        </ul>
+        
+        <div class="sidebar-divider"></div>
+        
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <span class="nav-icon">❓</span>
+                    <span class="nav-text">Help</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <span class="nav-icon">🚪</span>
+                    <span class="nav-text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</aside>
+            
+            <!-- Body Content -->
+            <div id="body-container"></div>
+        </div>
+    </div>
+
+    <script>
+        // Function to load HTML content
+        function loadHTML(file, elementId) {
+            fetch(file)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(elementId).innerHTML = data;
+                })
+                .catch(error => console.error('Error loading HTML:', error));
+        }
+
+        // Load all components
+        document.addEventListener('DOMContentLoaded', function() {
+            loadHTML('dashboard.html', 'body-container');
+        });
+    </script>
+</body>
+</html>

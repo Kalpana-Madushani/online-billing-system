@@ -31,10 +31,10 @@ public class logServlet extends HttpServlet {
             if (rs.next()) {
                 loginSuccessful = true;
 
-                // Optionally store user info in session
+                // Store user data in session
                 HttpSession session = request.getSession();
                 session.setAttribute("username", rs.getString("username"));
-                session.setAttribute("userRole", rs.getString("userRole")); // You can use this to redirect by role
+                session.setAttribute("userRole", rs.getString("userRole")); // Optional
             }
 
             rs.close();
@@ -45,9 +45,9 @@ public class logServlet extends HttpServlet {
         }
 
         if (loginSuccessful) {
-            response.sendRedirect("home.html");
+            response.sendRedirect("view/adminDashboard.jsp");
         } else {
-            response.sendRedirect("index.html?error=InvalidCredentials");
+            response.sendRedirect("view/login.jsp?error=InvalidCredentials");
         }
     }
 }

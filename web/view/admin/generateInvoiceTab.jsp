@@ -497,8 +497,11 @@
             }
             .invoice-filters {
                 padding: 0.75rem;
-                margin-bottom: 0.25rem; /* Tighter spacing on mobile */
+                margin-bottom: 0.25rem;
             }
+            .help-tab * {
+    margin: 10px;
+}
         }
     </style>
 </head>

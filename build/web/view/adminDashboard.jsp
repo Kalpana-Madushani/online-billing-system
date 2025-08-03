@@ -50,7 +50,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link" data-tab="admin/book.jsp">
+                            <a href="#" class="nav-link" data-tab="admin/bookTab.jsp">
                                 <span class="nav-icon">📚️</span>
                                 <span class="nav-text">Books</span>
                             </a>
@@ -79,7 +79,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link" data-tab="admin/logoutTab.jsp">
+                            <a href="#" class="nav-link" id="logoutBtn">
                                 <span class="nav-icon">🚪</span>
                                 <span class="nav-text">Logout</span>
                             </a>
@@ -132,7 +132,7 @@
 
         // Load default content and set up event listeners
         document.addEventListener('DOMContentLoaded', function() {
-            loadHTML('tabs/dashboardTab.jsp', 'body-container');
+            loadHTML('admin/dashboardTab.jsp', 'body-container');
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.addEventListener('click', function(event) {
                     event.preventDefault();
@@ -142,6 +142,22 @@
                 });
             });
         });
+        
+        // Logout confirmation
+    document.addEventListener('DOMContentLoaded', function () {
+        const logoutBtn = document.getElementById('logoutBtn');
+
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                const confirmed = confirm("Are you sure you want to logout?");
+                if (confirmed) {
+                    // Redirect to logout endpoint (replace with your actual logout URL)
+                    window.location.href = "login.jsp";
+                }
+            });
+        }
+    });
     </script>
 </body>
 </html>

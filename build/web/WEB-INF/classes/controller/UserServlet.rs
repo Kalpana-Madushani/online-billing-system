@@ -1,4 +1,0 @@
-controller.User
-controller.DeleteUserServlet
-controller.GetUsersServlet
-controller.UserServlet

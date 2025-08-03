@@ -72,7 +72,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+<!--                    <tr>
                         <td>001</td>
                         <td>admin</td>
                         <td><span class="role-badge role-admin">Admin</span></td>
@@ -124,7 +124,7 @@
                                 <button class="action-btn delete-btn">Delete</button>
                             </div>
                         </td>
-                    </tr>
+                    </tr>-->
                 </tbody>
             </table>
         </section>
@@ -437,91 +437,48 @@
 </style>
 
 <script>
-    // Sample users data
-    let users = [
-        { id: '001', username: 'admin', role: 'admin', status: 'active', createdDate: '2024-01-15' },
-        { id: '002', username: 'cashier1', role: 'cashier', status: 'active', createdDate: '2024-01-20' },
-        { id: '003', username: 'stockkeeper1', role: 'stock-keeper', status: 'active', createdDate: '2024-01-25' },
-        { id: '004', username: 'manager1', role: 'manager', status: 'inactive', createdDate: '2024-02-01' }
-    ];
-
-    // Form submission
     document.getElementById('addUserForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-        const role = document.getElementById('role').value;
-        if (username && password && role) {
-            const newId = String(users.length + 1).padStart(3, '0');
-            const newUser = {
-                id: newId,
-                username: username,
-                role: role,
-                status: 'active',
-                createdDate: new Date().toISOString().split('T')[0]
-            };
-            users.push(newUser);
-            this.reset();
+    e.preventDefault();
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const role = document.getElementById('role').value;
+
+    if (!username || !password || !role) return;
+
+    const user = {
+        username: username,
+        password: password,
+        role: role,
+        status: 'active'
+    };
+
+    fetch('<%=request.getContextPath()%>/user', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success) {
+            document.getElementById('addUserForm').reset();
             const successMessage = document.getElementById('successMessage');
             successMessage.style.display = 'block';
             setTimeout(() => {
                 successMessage.style.display = 'none';
             }, 3000);
-            renderUsersTable();
+            fetchUsers(); // refresh the table with new data
+        } else {
+            alert('Error: ' + data.message);
         }
+    })
+    .catch(err => {
+        alert('Error: ' + err.message);
     });
+    
+    
+});
 
-    // Render users table
-    function renderUsersTable(filteredUsers = users) {
-        const tbody = document.querySelector('#usersTable tbody');
-        tbody.innerHTML = '';
-        filteredUsers.forEach(user => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${user.id}</td>
-                <td>${user.username}</td>
-                <td><span class="role-badge role-${user.role}">${user.role.charAt(0).toUpperCase() + user.role.slice(1).replace('-', ' ')}</span></td>
-                <td><span class="status-${user.status}">${user.status.charAt(0).toUpperCase() + user.status.slice(1)}</span></td>
-                <td>${user.createdDate}</td>
-                <td>
-                    <div class="actions">
-                        <button class="action-btn edit-btn" onclick="editUser('${user.id}')">Edit</button>
-                        <button class="action-btn delete-btn" onclick="deleteUser('${user.id}')">Delete</button>
-                    </div>
-                </td>
-            `;
-            tbody.appendChild(row);
-        });
-    }
 
-    // Search functionality
-    document.getElementById('searchBox').addEventListener('input', function(e) {
-        const searchTerm = e.target.value.toLowerCase();
-        const filtered.Uers = users.filter(user =>
-            user.username.toLowerCase().includes(searchTerm) ||
-            user.role.toLowerCase().includes(searchTerm)
-        );
-        renderUsersTable(filteredUsers);
-    });
-
-    // Edit user function
-    function editUser(userId) {
-        const user = users.find(u => u.id === userId);
-        if (user) {
-            document.getElementById('username').value = user.username;
-            document.getElementById('role').value = user.role;
-            alert(`Editing user: ${user.username}`);
-        }
-    }
-
-    // Delete user function
-    function deleteUser(userId) {
-        if (confirm('Are you sure you want to delete this user?')) {
-            users = users.filter(u => u.id !== userId);
-            renderUsersTable();
-        }
-    }
-
-    // Initial render
-    renderUsersTable();
 </script>

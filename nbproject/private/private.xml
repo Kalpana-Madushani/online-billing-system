@@ -7,10 +7,8 @@
             <file>file:/C:/Users/elegant%20media/Documents/NetBeansProjects/Online%20Billing%20System/web/view/admin/generateInvoiceTab.jsp</file>
             <file>file:/C:/Users/elegant%20media/Documents/NetBeansProjects/Online%20Billing%20System/web/view/adminDashboard.jsp</file>
             <file>file:/C:/Users/elegant%20media/Documents/NetBeansProjects/Online%20Billing%20System/web/view/admin/dashboardTab.jsp</file>
-            <file>file:/C:/Users/elegant%20media/Documents/NetBeansProjects/Online%20Billing%20System/web/view/admin/book.jsp</file>
-            <file>file:/C:/Users/elegant%20media/Documents/NetBeansProjects/Online%20Billing%20System/web/view/dashboard.html</file>
+            <file>file:/C:/Users/elegant%20media/Documents/NetBeansProjects/Online%20Billing%20System/web/view/admin/bookTab.jsp</file>
             <file>file:/C:/Users/elegant%20media/Documents/NetBeansProjects/Online%20Billing%20System/web/view/dashboard.jsp</file>
-            <file>file:/C:/Users/elegant%20media/Documents/NetBeansProjects/Online%20Billing%20System/web/view/admin/logoutTab.jsp</file>
             <file>file:/C:/Users/elegant%20media/Documents/NetBeansProjects/Online%20Billing%20System/web/view/admin/helpTab.jsp</file>
             <file>file:/C:/Users/elegant%20media/Documents/NetBeansProjects/Online%20Billing%20System/web/view/admin/salesReportTab.jsp</file>
             <file>file:/C:/Users/elegant%20media/Documents/NetBeansProjects/Online%20Billing%20System/src/java/model/MonthlySales.java</file>
@@ -23,6 +21,12 @@
             <file>file:/C:/Users/elegant%20media/Documents/NetBeansProjects/Online%20Billing%20System/src/java/controller/logServlet.java</file>
             <file>file:/C:/Users/elegant%20media/Documents/NetBeansProjects/Online%20Billing%20System/web/WEB-INF/web.xml</file>
             <file>file:/C:/Users/elegant%20media/Documents/NetBeansProjects/Online%20Billing%20System/src/java/model/User.java</file>
+            <file>file:/C:/Users/elegant%20media/Documents/NetBeansProjects/Online%20Billing%20System/web/view/header.html</file>
+            <file>file:/C:/Users/elegant%20media/Documents/NetBeansProjects/Online%20Billing%20System/src/java/model/Book.java</file>
+            <file>file:/C:/Users/elegant%20media/Documents/NetBeansProjects/Online%20Billing%20System/src/java/controller/BookServlet.java</file>
+            <file>file:/C:/Users/elegant%20media/Documents/NetBeansProjects/Online%20Billing%20System/web/view/register.jsp</file>
+            <file>file:/C:/Users/elegant%20media/Documents/NetBeansProjects/Online%20Billing%20System/web/view/home.html</file>
+            <file>file:/C:/Users/elegant%20media/Documents/NetBeansProjects/Online%20Billing%20System/web/view/alertDialog.html</file>
         </group>
     </open-files>
 </project-private>

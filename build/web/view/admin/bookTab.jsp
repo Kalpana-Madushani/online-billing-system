@@ -1,6 +1,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <div class="content-area">
+    <div class="tab-nav">
+            <button class="tab-button active" data-tab="books-overview">Books Overview</button>
+            <button class="tab-button" data-tab="add-book">Add New Book</button>
+        </div>
+    
     <!-- Page Header -->
     <div class="page-header">
         <h1 class="page-title">
@@ -10,6 +15,10 @@
         <p class="page-subtitle">View your book inventory here.</p>
     </div>
 
+    <div class="tab-content">
+            <!-- Books Overview Tab -->
+            <div id="books-overview" class="tab-pane active">
+                
     <!-- Dashboard Stats -->
     <div class="dashboard-stats">
         <div class="stat-card">
@@ -192,6 +201,132 @@
             </div>
         </div>
     </div>
+            </div>
+    <!-- HIGHLIGHT: Add New Book Tab -->
+            <div id="add-book" class="tab-pane">
+                <section class="add-book-section">
+            <h2 class="form-title">
+                <span class="section-icon">📚</span>
+                Add New Book
+            </h2>
+            <form id="addBookForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label" for="bookTitle">Book Title</label>
+                        <input type="text" id="bookTitle" class="form-input" placeholder="Enter book title" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="author">Author</label>
+                        <input type="text" id="author" class="form-input" placeholder="Enter author name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="isbn">ISBN</label>
+                        <input type="text" id="isbn" class="form-input" placeholder="Enter ISBN number" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="category">Category</label>
+                        <select id="category" class="form-select" required>
+                            <option value="">Select Category</option>
+                            <option value="fiction">Fiction</option>
+                            <option value="non-fiction">Non-Fiction</option>
+                            <option value="science">Science</option>
+                            <option value="history">History</option>
+                            <option value="biography">Biography</option>
+                            <option value="children">Children's Books</option>
+                            <option value="textbook">Textbook</option>
+                            <option value="reference">Reference</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="publisher">Publisher</label>
+                        <input type="text" id="publisher" class="form-input" placeholder="Enter publisher name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="publishYear">Publication Year</label>
+                        <input type="number" id="publishYear" class="form-input" placeholder="Enter year" min="1800" max="2025" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="price">Price (LKR)</label>
+                        <input type="number" id="price" class="form-input" placeholder="Enter price" min="0" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="quantity">Stock Quantity</label>
+                        <input type="number" id="quantity" class="form-input" placeholder="Enter quantity" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="description">Description</label>
+                        <textarea id="description" class="form-textarea" placeholder="Enter book description" rows="3"></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="add-book-btn">
+                    Add Book
+                </button>
+            </form>
+        </section>
+
+        <!-- Books Table -->
+        <section class="books-table-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="section-icon">📖</span>
+                    All Books
+                </h2>
+                <div class="header-controls">
+                    <select class="filter-select" id="categoryFilter">
+                        <option value="">All Categories</option>
+                        <option value="fiction">Fiction</option>
+                        <option value="non-fiction">Non-Fiction</option>
+                        <option value="science">Science</option>
+                        <option value="history">History</option>
+                        <option value="biography">Biography</option>
+                        <option value="children">Children's Books</option>
+                        <option value="textbook">Textbook</option>
+                        <option value="reference">Reference</option>
+                    </select>
+                    <input type="text" class="search-box" placeholder="Search books..." id="searchBox">
+                </div>
+            </div>
+            <div class="table-container">
+                <table class="books-table" id="booksTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>ISBN</th>
+                            <th>Category</th>
+                            <th>Price (LKR)</th>
+                            <th>Stock</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Sample data - remove in production -->
+                       
+                        <tr>
+                            <td>B001</td>
+                            <td>The Great Gatsby</td>
+                            <td>F. Scott Fitzgerald</td>
+                            <td>978-0-7432-7356-5</td>
+                            <td><span class="category-badge category-fiction">Fiction</span></td>
+                            <td>Rs. 1,250.00</td>
+                            <td>25</td>
+                            <td><span class="status-in-stock">In Stock</span></td>
+                            <td>
+                                <div class="actions">
+                                    <button class="action-btn edit-btn">Edit</button>
+                                    <button class="action-btn delete-btn">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+            </div>
+        </div>
+    </div>
 
     <!-- FILTER FUNCTIONALITY -->
     <script>
@@ -199,7 +334,32 @@
         const categoryFilter = document.getElementById("categoryFilter");
         const stockFilter = document.getElementById("stockFilter");
         const booksGrid = document.getElementById("booksGrid");
+        
+        const tabButtons = document.querySelectorAll(".tab-button");
+        const tabPanes = document.querySelectorAll(".tab-pane");
 
+        tabButtons.forEach(button => {
+            button.addEventListener("click", function() {
+                const tabId = this.getAttribute("data-tab");
+
+                tabButtons.forEach(btn => btn.classList.remove("active"));
+                this.classList.add("active");
+
+                tabPanes.forEach(pane => {
+                    pane.classList.toggle("active", pane.id === tabId);
+                });
+            });
+        });
+        
+        addBookBtn.addEventListener("click", function() {
+            // Switch to Add New Book tab
+            tabButtons.forEach(btn => btn.classList.remove("active"));
+            document.querySelector(`.tab-button[data-tab="add-book"]`).classList.add("active");
+            tabPanes.forEach(pane => {
+                pane.classList.toggle("active", pane.id === "add-book");
+            });
+        });
+        
         function filterBooks() {
             const searchTerm = searchInput.value.toLowerCase();
             const selectedCategory = categoryFilter.value.toLowerCase();
@@ -334,6 +494,49 @@
     }
 
     .stat-change.neutral { color: #666; }
+    
+/*    tab styles*/
+     .tab-nav {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #e1e5e9;
+    }
+
+    .tab-button {
+        padding: 10px 20px;
+        border: none;
+        background: none;
+        font-size: 16px;
+        font-weight: 500;
+        color: #666;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .tab-button:hover {
+        color: #333;
+    }
+
+    .tab-button.active {
+        color: #333;
+        border-bottom: 2px solid #667eea;
+    }
+
+    .tab-content {
+        background: white;
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .tab-pane {
+        display: none;
+    }
+
+    .tab-pane.active {
+        display: block;
+    }
 
     /* Search and Filter Section */
     .dashboard-section {
@@ -661,6 +864,258 @@
     .btn-secondary:hover {
         background: #5a6268;
     }
+    
+    /* Add book section styles */
+    .add-book-section {
+        background-color: white;
+        border-radius: 12px;
+        padding: 1rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        max-width: 100%;
+        flex: 0 0 auto;
+        width: 100%;
+    }
+
+    .form-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #333;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #E8D5F2;
+    }
+
+    .section-icon {
+        font-size: 1.2rem;
+    }
+
+    .form-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+
+    .form-group:nth-child(1),
+    .form-group:nth-child(9) {
+        grid-column: 1 / -1;
+    }
+
+    .form-label {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #333;
+    }
+
+    .form-input, .form-select, .form-textarea {
+        padding: 0.75rem;
+        border: 1px solid #E8D5F2;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        color: #333;
+        background-color: #f8f9fa;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        font-family: inherit;
+    }
+
+    .form-textarea {
+        resize: vertical;
+        min-height: 80px;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+        outline: none;
+        border-color: #B595D8;
+        box-shadow: 0 0 0 3px rgba(181, 149, 216, 0.2);
+    }
+
+    .add-book-btn {
+        background: linear-gradient(135deg, #B595D8, #C8A8E0);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.3s ease;
+        width: 100%;
+        grid-column: 1 / -1;
+    }
+
+    .add-book-btn:hover {
+        background: linear-gradient(135deg, #C8A8E0, #B595D8);
+        transform: translateY(-2px);
+    }
+
+    /* Books table section styles */
+    .books-table-section {
+        background-color: white;
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        flex: 1;
+        min-width: 0;
+        margin-top: 20px;
+    }
+
+    .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #E8D5F2;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #333;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 0;
+    }
+
+    .header-controls {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .filter-select {
+        padding: 0.75rem;
+        border: 1px solid #E8D5F2;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        width: 150px;
+        background-color: #f8f9fa;
+        transition: border-color 0.3s ease;
+    }
+
+    .search-box {
+        padding: 0.75rem;
+        border: 1px solid #E8D5F2;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        width: 200px;
+        background-color: #f8f9fa;
+        transition: border-color 0.3s ease;
+    }
+
+    .search-box:focus, .filter-select:focus {
+        outline: none;
+        border-color: #B595D8;
+    }
+
+    .table-container {
+        overflow-x: auto;
+    }
+
+    .books-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+        min-width: 800px;
+    }
+
+    .books-table th, .books-table td {
+        padding: 1rem;
+        text-align: left;
+        border-bottom: 1px solid #E8D5F2;
+    }
+
+    .books-table th {
+        background-color: #f8f9fa;
+        font-weight: 600;
+        color: #333;
+        white-space: nowrap;
+    }
+
+    .books-table tr:hover {
+        background-color: #E8D5F2;
+    }
+
+    .category-badge {
+        padding: 0.25rem 0.75rem;
+        border-radius: 12px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: white;
+        white-space: nowrap;
+    }
+
+    .category-fiction { background: linear-gradient(135deg, #E91E63, #C2185B); }
+    .category-non-fiction { background: linear-gradient(135deg, #2196F3, #1976D2); }
+    .category-science { background: linear-gradient(135deg, #4CAF50, #388E3C); }
+    .category-history { background: linear-gradient(135deg, #FF9800, #F57C00); }
+    .category-biography { background: linear-gradient(135deg, #9C27B0, #7B1FA2); }
+    .category-children { background: linear-gradient(135deg, #FF5722, #D84315); }
+    .category-textbook { background: linear-gradient(135deg, #607D8B, #455A64); }
+    .category-reference { background: linear-gradient(135deg, #795548, #5D4037); }
+
+    .status-in-stock {
+        color: #4CAF50;
+        font-weight: 500;
+    }
+
+    .status-low-stock {
+        color: #FF9800;
+        font-weight: 500;
+    }
+
+    .status-out-of-stock {
+        color: #f44336;
+        font-weight: 500;
+    }
+
+    .actions {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .action-btn {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.3s ease;
+        white-space: nowrap;
+    }
+
+    .edit-btn {
+        background-color: #B595D8;
+        color: white;
+    }
+
+    .edit-btn:hover {
+        background-color: #C8A8E0;
+        transform: translateY(-1px);
+    }
+
+    .delete-btn {
+        background-color: #f44336;
+        color: white;
+    }
+
+    .delete-btn:hover {
+        background-color: #d32f2f;
+        transform: translateY(-1px);
+    }
+
 
     /* Responsive Design */
     @media (max-width: 1200px) {

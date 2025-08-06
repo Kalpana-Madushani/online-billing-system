@@ -468,7 +468,7 @@
             setTimeout(() => {
                 successMessage.style.display = 'none';
             }, 3000);
-            fetchUsers(); // refresh the table with new data
+            fetchUsers(); 
         } else {
             alert('Error: ' + data.message);
         }

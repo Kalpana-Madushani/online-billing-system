@@ -2,9 +2,9 @@
 
 <div class="content-area">
     <div class="tab-nav">
-            <button class="tab-button active" data-tab="books-overview">Books Overview</button>
-            <button class="tab-button" data-tab="add-book">Add New Book</button>
-        </div>
+        <button class="tab-button active" data-tab="books-overview">Books Overview</button>
+        <button class="tab-button" data-tab="add-book">Add New Book</button>
+    </div>
     
     <!-- Page Header -->
     <div class="page-header">
@@ -16,217 +16,270 @@
     </div>
 
     <div class="tab-content">
-            <!-- Books Overview Tab -->
-            <div id="books-overview" class="tab-pane active">
-                
-    <!-- Dashboard Stats -->
-    <div class="dashboard-stats">
-        <div class="stat-card">
-            <div class="stat-icon books">📚</div>
-            <div class="stat-content">
-                <h3 id="totalBooks">4</h3>
-                <p>Total Books</p>
-                <small class="stat-change neutral">Updated today</small>
+        <!-- Books Overview Tab -->
+        <div id="books-overview" class="tab-pane active">
+            <!-- Dashboard Stats -->
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-icon books">📚</div>
+                    <div class="stat-content">
+                        <h3 id="totalBooks">4</h3>
+                        <p>Total Books</p>
+                        <small class="stat-change neutral">Updated today</small>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon in-stock">✅</div>
+                    <div class="stat-content">
+                        <h3 id="inStock">2</h3>
+                        <p>In Stock</p>
+                        <small class="stat-change neutral">Updated today</small>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon low-stock">⚠️</div>
+                    <div class="stat-content">
+                        <h3 id="lowStock">1</h3>
+                        <p>Low Stock</p>
+                        <small class="stat-change neutral">Updated today</small>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon out-of-stock">❌</div>
+                    <div class="stat-content">
+                        <h3 id="outOfStock">1</h3>
+                        <p>Out of Stock</p>
+                        <small class="stat-change neutral">Updated today</small>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-icon in-stock">✅</div>
-            <div class="stat-content">
-                <h3 id="inStock">2</h3>
-                <p>In Stock</p>
-                <small class="stat-change neutral">Updated today</small>
-            </div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-icon low-stock">⚠️</div>
-            <div class="stat-content">
-                <h3 id="lowStock">1</h3>
-                <p>Low Stock</p>
-                <small class="stat-change neutral">Updated today</small>
-            </div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-icon out-of-stock">❌</div>
-            <div class="stat-content">
-                <h3 id="outOfStock">1</h3>
-                <p>Out of Stock</p>
-                <small class="stat-change neutral">Updated today</small>
-            </div>
-        </div>
-    </div>
 
-    <!-- Search and Filter Section -->
-    <div class="dashboard-section">
-        <div class="search-filter-row">
-            <div class="search-box">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="search-input" placeholder="Search books by title, author, or ISBN..." id="searchInput">
-            </div>
-            <div class="filter-group">
-                <select class="filter-select" id="categoryFilter">
-                    <option value="">All Categories</option>
-                    <option value="fiction">Fiction</option>
-                    <option value="non-fiction">Non-Fiction</option>
-                    <option value="science">Science</option>
-                    <option value="technology">Technology</option>
-                    <option value="history">History</option>
-                    <option value="biography">Biography</option>
-                </select>
-                <select class="filter-select" id="stockFilter">
-                    <option value="">All Stock</option>
-                    <option value="in-stock">In Stock</option>
-                    <option value="low-stock">Low Stock</option>
-                    <option value="out-of-stock">Out of Stock</option>
-                </select>
-            </div>
-        </div>
+            <!-- Search and Filter Section -->
+            <div class="dashboard-section">
+                <div class="search-filter-row">
+                    <div class="search-box">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" class="search-input" placeholder="Search books by title, author, or ISBN..." id="searchInput">
+                    </div>
+                    <div class="filter-group">
+                        <select class="filter-select" id="categoryFilter">
+                            <option value="">All Categories</option>
+                            <option value="fiction">Fiction</option>
+                            <option value="non-fiction">Non-Fiction</option>
+                            <option value="science">Science</option>
+                            <option value="history">History</option>
+                            <option value="biography">Biography</option>
+                        </select>
+                        <select class="filter-select" id="stockFilter">
+                            <option value="">All Stock</option>
+                            <option value="in-stock">In Stock</option>
+                            <option value="low-stock">Low Stock</option>
+                            <option value="out-of-stock">Out of Stock</option>
+                        </select>
+                    </div>
+                </div>
 
-        <!-- Books Grid (moved here under filter section) -->
-        <div class="books-grid" id="booksGrid">
-            <div class="book-card">
-                <img src="https://picsum.photos/200/300" alt="The Great Gatsby Cover" class="book-image">
-                <div class="book-header">
-                    <div>
-                        <div class="book-title">The Great Gatsby</div>
-                        <div class="book-author">by F. Scott Fitzgerald</div>
+                <!-- Books Grid -->
+                <div class="books-grid" id="booksGrid">
+                    <div class="book-card">
+                        <img src="https://picsum.photos/200/300" alt="The Great Gatsby Cover" class="book-image">
+                        <div class="book-header">
+                            <div>
+                                <div class="book-title">The Great Gatsby</div>
+                                <div class="book-author">by F. Scott Fitzgerald</div>
+                            </div>
+                            <div class="stock-badge stock-in">In Stock</div>
+                        </div>
+                        <div class="book-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Category</span>
+                                <span class="detail-value">Fiction</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Stock</span>
+                                <span class="detail-value">15 units</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Publisher</span>
+                                <span class="detail-value">Scribner</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Year</span>
+                                <span class="detail-value">1925</span>
+                            </div>
+                        </div>
+                        <div class="book-price">LKR 2500.00</div>
                     </div>
-                    <div class="stock-badge stock-in">In Stock</div>
+                    <div class="book-card">
+                        <img src="https://picsum.photos/200/300" alt="To Kill a Mockingbird Cover" class="book-image">
+                        <div class="book-header">
+                            <div>
+                                <div class="book-title">To Kill a Mockingbird</div>
+                                <div class="book-author">by Harper Lee</div>
+                            </div>
+                            <div class="stock-badge stock-low">Low Stock</div>
+                        </div>
+                        <div class="book-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Category</span>
+                                <span class="detail-value">Fiction</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Stock</span>
+                                <span class="detail-value">3 units</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Publisher</span>
+                                <span class="detail-value">Harper Perennial</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Year</span>
+                                <span class="detail-value">1960</span>
+                            </div>
+                        </div>
+                        <div class="book-price">LKR 3200.00</div>
+                    </div>
+                    <div class="book-card">
+                        <img src="https://picsum.photos/200/300" alt="Clean Code Cover" class="book-image">
+                        <div class="book-header">
+                            <div>
+                                <div class="book-title">Clean Code</div>
+                                <div class="book-author">by Robert C. Martin</div>
+                            </div>
+                            <div class="stock-badge stock-out">Out of Stock</div>
+                        </div>
+                        <div class="book-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Category</span>
+                                <span class="detail-value">Technology</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Stock</span>
+                                <span class="detail-value">0 units</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Publisher</span>
+                                <span class="detail-value">Prentice Hall</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Year</span>
+                                <span class="detail-value">2008</span>
+                            </div>
+                        </div>
+                        <div class="book-price">LKR 4500.00</div>
+                    </div>
+                    <div class="book-card">
+                        <img src="https://picsum.photos/200/300" alt="Sapiens Cover" class="book-image">
+                        <div class="book-header">
+                            <div>
+                                <div class="book-title">Sapiens</div>
+                                <div class="book-author">by Yuval Noah Harari</div>
+                            </div>
+                            <div class="stock-badge stock-in">In Stock</div>
+                        </div>
+                        <div class="book-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Category</span>
+                                <span class="detail-value">History</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Stock</span>
+                                <span class="detail-value">22 units</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Publisher</span>
+                                <span class="detail-value">Harper</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Year</span>
+                                <span class="detail-value">2011</span>
+                            </div>
+                        </div>
+                        <div class="book-price">LKR 3800.00</div>
+                    </div>
                 </div>
-                <div class="book-details">
-                    <div class="detail-item">
-                        <span class="detail-label">Category</span>
-                        <span class="detail-value">Fiction</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Stock</span>
-                        <span class="detail-value">15 units</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Publisher</span>
-                        <span class="detail-value">Scribner</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Year</span>
-                        <span class="detail-value">1925</span>
-                    </div>
-                </div>
-                <div class="book-price">LKR 2500.00</div>
-            </div>
-            <div class="book-card">
-                <img src="https://picsum.photos/200/300" alt="To Kill a Mockingbird Cover" class="book-image">
-                <div class="book-header">
-                    <div>
-                        <div class="book-title">To Kill a Mockingbird</div>
-                        <div class="book-author">by Harper Lee</div>
-                    </div>
-                    <div class="stock-badge stock-low">Low Stock</div>
-                </div>
-                <div class="book-details">
-                    <div class="detail-item">
-                        <span class="detail-label">Category</span>
-                        <span class="detail-value">Fiction</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Stock</span>
-                        <span class="detail-value">3 units</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Publisher</span>
-                        <span class="detail-value">Harper Perennial</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Year</span>
-                        <span class="detail-value">1960</span>
-                    </div>
-                </div>
-                <div class="book-price">LKR 3200.00</div>
-            </div>
-            <div class="book-card">
-                <img src="https://picsum.photos/200/300" alt="Clean Code Cover" class="book-image">
-                <div class="book-header">
-                    <div>
-                        <div class="book-title">Clean Code</div>
-                        <div class="book-author">by Robert C. Martin</div>
-                    </div>
-                    <div class="stock-badge stock-out">Out of Stock</div>
-                </div>
-                <div class="book-details">
-                    <div class="detail-item">
-                        <span class="detail-label">Category</span>
-                        <span class="detail-value">Technology</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Stock</span>
-                        <span class="detail-value">0 units</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Publisher</span>
-                        <span class="detail-value">Prentice Hall</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Year</span>
-                        <span class="detail-value">2008</span>
-                    </div>
-                </div>
-                <div class="book-price">LKR 4500.00</div>
-            </div>
-            <div class="book-card">
-                <img src="https://picsum.photos/200/300" alt="Sapiens Cover" class="book-image">
-                <div class="book-header">
-                    <div>
-                        <div class="book-title">Sapiens</div>
-                        <div class="book-author">by Yuval Noah Harari</div>
-                    </div>
-                    <div class="stock-badge stock-in">In Stock</div>
-                </div>
-                <div class="book-details">
-                    <div class="detail-item">
-                        <span class="detail-label">Category</span>
-                        <span class="detail-value">History</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Stock</span>
-                        <span class="detail-value">22 units</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Publisher</span>
-                        <span class="detail-value">Harper</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Year</span>
-                        <span class="detail-value">2011</span>
-                    </div>
-                </div>
-                <div class="book-price">LKR 3800.00</div>
             </div>
         </div>
-    </div>
-            </div>
-    <!-- HIGHLIGHT: Add New Book Tab -->
-            <div id="add-book" class="tab-pane">
-                <section class="add-book-section">
-            <h2 class="form-title">
-                <span class="section-icon">📚</span>
-                Add New Book
-            </h2>
-            <form id="addBookForm">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label class="form-label" for="bookTitle">Book Title</label>
-                        <input type="text" id="bookTitle" class="form-input" placeholder="Enter book title" required>
+        <!-- Add New Book Tab -->
+        <div id="add-book" class="tab-pane">
+            <section class="add-book-section">
+                <h2 class="form-title">
+                    <span class="section-icon">📚</span>
+                    Add New Book
+                </h2>
+                <div id="formMessage" class="form-message" style="display: none;"></div>
+                <form id="addBookForm" enctype="multipart/form-data">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="bookTitle">Book Title</label>
+                            <input type="text" id="bookTitle" name="title" class="form-input" placeholder="Enter book title" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="author">Author</label>
+                            <input type="text" id="author" name="author" class="form-input" placeholder="Enter author name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="isbn">ISBN</label>
+                            <input type="text" id="isbn" name="isbn" class="form-input" placeholder="Enter ISBN number" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="category">Category</label>
+                            <select id="category" name="category" class="form-select" required>
+                                <option value="">Select Category</option>
+                                <option value="fiction">Fiction</option>
+                                <option value="non-fiction">Non-Fiction</option>
+                                <option value="science">Science</option>
+                                <option value="history">History</option>
+                                <option value="biography">Biography</option>
+                                <option value="children">Children's Books</option>
+                                <option value="textbook">Textbook</option>
+                                <option value="reference">Reference</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="publisher">Publisher</label>
+                            <input type="text" id="publisher" name="publisher" class="form-input" placeholder="Enter publisher name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="publishYear">Publication Year</label>
+                            <input type="number" id="publishYear" name="year" class="form-input" placeholder="Enter year" min="1800" max="2025" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="price">Price (LKR)</label>
+                            <input type="number" id="price" name="price" class="form-input" placeholder="Enter price" min="0" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="quantity">Stock Quantity</label>
+                            <input type="number" id="quantity" name="stock" class="form-input" placeholder="Enter quantity" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="bookImage">Book Cover Image</label>
+                            <input type="file" id="bookImage" name="image" class="form-input" accept="image/*">
+                            <div class="image-preview" id="imagePreview">
+                                <img id="previewImg" src="" alt="Image Preview" style="display: none; max-width: 100%; max-height: 200px; margin-top: 10px; border-radius: 8px;">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="description">Description</label>
+                            <textarea id="description" name="description" class="form-textarea" placeholder="Enter book description" rows="3"></textarea>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label class="form-label" for="author">Author</label>
-                        <input type="text" id="author" class="form-input" placeholder="Enter author name" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="isbn">ISBN</label>
-                        <input type="text" id="isbn" class="form-input" placeholder="Enter ISBN number" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="category">Category</label>
-                        <select id="category" class="form-select" required>
-                            <option value="">Select Category</option>
+                    <button type="submit" class="add-book-btn">
+                        Add Book
+                    </button>
+                </form>
+            </section>
+
+            <!-- Books Table -->
+            <section class="books-table-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-icon">📖</span>
+                        All Books
+                    </h2>
+                    <div class="header-controls">
+                        <select class="filter-select" id="categoryFilterTable">
+                            <option value="">All Categories</option>
                             <option value="fiction">Fiction</option>
                             <option value="non-fiction">Non-Fiction</option>
                             <option value="science">Science</option>
@@ -236,158 +289,249 @@
                             <option value="textbook">Textbook</option>
                             <option value="reference">Reference</option>
                         </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="publisher">Publisher</label>
-                        <input type="text" id="publisher" class="form-input" placeholder="Enter publisher name" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="publishYear">Publication Year</label>
-                        <input type="number" id="publishYear" class="form-input" placeholder="Enter year" min="1800" max="2025" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="price">Price (LKR)</label>
-                        <input type="number" id="price" class="form-input" placeholder="Enter price" min="0" step="0.01" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="quantity">Stock Quantity</label>
-                        <input type="number" id="quantity" class="form-input" placeholder="Enter quantity" min="0" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="description">Description</label>
-                        <textarea id="description" class="form-textarea" placeholder="Enter book description" rows="3"></textarea>
+                        <input type="text" class="search-box" placeholder="Search books..." id="searchBox">
                     </div>
                 </div>
-                <button type="submit" class="add-book-btn">
-                    Add Book
-                </button>
-            </form>
-        </section>
-
-        <!-- Books Table -->
-        <section class="books-table-section">
-            <div class="section-header">
-                <h2 class="section-title">
-                    <span class="section-icon">📖</span>
-                    All Books
-                </h2>
-                <div class="header-controls">
-                    <select class="filter-select" id="categoryFilter">
-                        <option value="">All Categories</option>
-                        <option value="fiction">Fiction</option>
-                        <option value="non-fiction">Non-Fiction</option>
-                        <option value="science">Science</option>
-                        <option value="history">History</option>
-                        <option value="biography">Biography</option>
-                        <option value="children">Children's Books</option>
-                        <option value="textbook">Textbook</option>
-                        <option value="reference">Reference</option>
-                    </select>
-                    <input type="text" class="search-box" placeholder="Search books..." id="searchBox">
+                <div class="table-container">
+                    <table class="books-table" id="booksTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>ISBN</th>
+                                <th>Category</th>
+                                <th>Price (LKR)</th>
+                                <th>Stock</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>B001</td>
+                                <td>The Great Gatsby</td>
+                                <td>F. Scott Fitzgerald</td>
+                                <td>978-0-7432-7356-5</td>
+                                <td><span class="category-badge category-fiction">Fiction</span></td>
+                                <td>Rs. 1,250.00</td>
+                                <td>25</td>
+                                <td><span class="status-in-stock">In Stock</span></td>
+                                <td>
+                                    <div class="actions">
+                                        <button class="action-btn edit-btn">Edit</button>
+                                        <button class="action-btn delete-btn">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-            </div>
-            <div class="table-container">
-                <table class="books-table" id="booksTable">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Title</th>
-                            <th>Author</th>
-                            <th>ISBN</th>
-                            <th>Category</th>
-                            <th>Price (LKR)</th>
-                            <th>Stock</th>
-                            <th>Status</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Sample data - remove in production -->
-                       
-                        <tr>
-                            <td>B001</td>
-                            <td>The Great Gatsby</td>
-                            <td>F. Scott Fitzgerald</td>
-                            <td>978-0-7432-7356-5</td>
-                            <td><span class="category-badge category-fiction">Fiction</span></td>
-                            <td>Rs. 1,250.00</td>
-                            <td>25</td>
-                            <td><span class="status-in-stock">In Stock</span></td>
-                            <td>
-                                <div class="actions">
-                                    <button class="action-btn edit-btn">Edit</button>
-                                    <button class="action-btn delete-btn">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-            </div>
+            </section>
         </div>
     </div>
-
-    <!-- FILTER FUNCTIONALITY -->
-    <script>
-        const searchInput = document.getElementById("searchInput");
-        const categoryFilter = document.getElementById("categoryFilter");
-        const stockFilter = document.getElementById("stockFilter");
-        const booksGrid = document.getElementById("booksGrid");
-        
-        const tabButtons = document.querySelectorAll(".tab-button");
-        const tabPanes = document.querySelectorAll(".tab-pane");
-
-        tabButtons.forEach(button => {
-            button.addEventListener("click", function() {
-                const tabId = this.getAttribute("data-tab");
-
-                tabButtons.forEach(btn => btn.classList.remove("active"));
-                this.classList.add("active");
-
-                tabPanes.forEach(pane => {
-                    pane.classList.toggle("active", pane.id === tabId);
-                });
-            });
-        });
-        
-        addBookBtn.addEventListener("click", function() {
-            // Switch to Add New Book tab
-            tabButtons.forEach(btn => btn.classList.remove("active"));
-            document.querySelector(`.tab-button[data-tab="add-book"]`).classList.add("active");
-            tabPanes.forEach(pane => {
-                pane.classList.toggle("active", pane.id === "add-book");
-            });
-        });
-        
-        function filterBooks() {
-            const searchTerm = searchInput.value.toLowerCase();
-            const selectedCategory = categoryFilter.value.toLowerCase();
-            const selectedStock = stockFilter.value.toLowerCase();
-            const books = booksGrid.querySelectorAll(".book-card");
-
-            books.forEach(book => {
-                const title = book.querySelector(".book-title").textContent.toLowerCase();
-                const author = book.querySelector(".book-author").textContent.toLowerCase();
-                const category = book.querySelector(".detail-value").textContent.toLowerCase();
-                const stockBadge = book.querySelector(".stock-badge").classList;
-                const stockType = stockBadge.contains("stock-in") ? "in-stock" :
-                                  stockBadge.contains("stock-low") ? "low-stock" :
-                                  stockBadge.contains("stock-out") ? "out-of-stock" : "";
-
-                const matchesSearch = title.includes(searchTerm) || author.includes(searchTerm);
-                const matchesCategory = !selectedCategory || category === selectedCategory;
-                const matchesStock = !selectedStock || stockType === selectedStock;
-
-                book.style.display = (matchesSearch && matchesCategory && matchesStock) ? "" : "none";
-            });
-        }
-
-        searchInput.addEventListener("input", filterBooks);
-        categoryFilter.addEventListener("change", filterBooks);
-        stockFilter.addEventListener("change", filterBooks);
-    </script>
 </div>
+
+<script>
+    const searchInput = document.getElementById("searchInput");
+    const categoryFilter = document.getElementById("categoryFilter");
+    const stockFilter = document.getElementById("stockFilter");
+    const booksGrid = document.getElementById("booksGrid");
+    const tabButtons = document.querySelectorAll(".tab-button");
+    const tabPanes = document.querySelectorAll(".tab-pane");
+    const bookImageInput = document.getElementById("bookImage");
+    const previewImg = document.getElementById("previewImg");
+    const addBookForm = document.getElementById("addBookForm");
+    const formMessage = document.getElementById("formMessage");
+
+    tabButtons.forEach(button => {
+        button.addEventListener("click", function() {
+            const tabId = this.getAttribute("data-tab");
+
+            tabButtons.forEach(btn => btn.classList.remove("active"));
+            this.classList.add("active");
+
+            tabPanes.forEach(pane => {
+                pane.classList.toggle("active", pane.id === tabId);
+            });
+        });
+    });
+
+    function filterBooks() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const selectedCategory = categoryFilter.value.toLowerCase();
+        const selectedStock = stockFilter.value.toLowerCase();
+        const books = booksGrid.querySelectorAll(".book-card");
+
+        books.forEach(book => {
+            const title = book.querySelector(".book-title").textContent.toLowerCase();
+            const author = book.querySelector(".book-author").textContent.toLowerCase();
+            const category = book.querySelector(".detail-value").textContent.toLowerCase();
+            const stockBadge = book.querySelector(".stock-badge").classList;
+            const stockType = stockBadge.contains("stock-in") ? "in-stock" :
+                            stockBadge.contains("stock-low") ? "low-stock" :
+                            stockBadge.contains("stock-out") ? "out-of-stock" : "";
+
+            const matchesSearch = title.includes(searchTerm) || author.includes(searchTerm);
+            const matchesCategory = !selectedCategory || category === selectedCategory;
+            const matchesStock = !selectedStock || stockType === selectedStock;
+
+            book.style.display = (matchesSearch && matchesCategory && matchesStock) ? "" : "none";
+        });
+    }
+
+    searchInput.addEventListener("input", filterBooks);
+    categoryFilter.addEventListener("change", filterBooks);
+    stockFilter.addEventListener("change", filterBooks);
+
+    bookImageInput.addEventListener("change", function() {
+        const file = this.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                previewImg.src = e.target.result;
+                previewImg.style.display = "block";
+            };
+            reader.readAsDataURL(file);
+        } else {
+            previewImg.src = "";
+            previewImg.style.display = "none";
+        }
+    });
+
+    function fetchBooks() {
+        fetch("<%=request.getContextPath()%>/addBook", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then(response => response.json())
+        .then(books => {
+            const tableBody = document.querySelector("#booksTable tbody");
+            tableBody.innerHTML = "";
+            books.forEach(book => {
+                const status = book.stock > 5 ? "In Stock" : book.stock > 0 ? "Low Stock" : "Out of Stock";
+                const statusClass = book.stock > 5 ? "status-in-stock" : book.stock > 0 ? "status-low-stock" : "status-out-of-stock";
+                const categoryClass = `category-${book.category.toLowerCase()}`;
+
+                const row = `
+                    <tr>
+                        <td>${book.id}</td>
+                        <td>${book.title}</td>
+                        <td>${book.author}</td>
+                        <td>${book.isbn}</td>
+                        <td><span class="category-badge ${categoryClass}">${book.category}</span></td>
+                        <td>Rs. ${book.price.toFixed(2)}</td>
+                        <td>${book.stock}</td>
+                        <td><span class="${statusClass}">${status}</span></td>
+                        <td>
+                            <div class="actions">
+                                <button class="action-btn edit-btn">Edit</button>
+                                <button class="action-btn delete-btn">Delete</button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                tableBody.insertAdjacentHTML("beforeend", row);
+            });
+
+            updateBooksGrid(books);
+            updateDashboardStats(books);
+        })
+        .catch(error => {
+            console.error("Error fetching books:", error);
+        });
+    }
+
+    function updateBooksGrid(books) {
+        const booksGrid = document.getElementById("booksGrid");
+        booksGrid.innerHTML = "";
+
+        books.forEach(book => {
+            const status = book.stock > 5 ? "In Stock" : book.stock > 0 ? "Low Stock" : "Out of Stock";
+            const stockClass = book.stock > 5 ? "stock-in" : book.stock > 0 ? "stock-low" : "stock-out";
+            const imageSrc = book.imageUrl || "https://picsum.photos/200/300";
+
+            const card = `
+                <div class="book-card">
+                    <img src="${imageSrc}" alt="${book.title} Cover" class="book-image">
+                    <div class="book-header">
+                        <div>
+                            <div class="book-title">${book.title}</div>
+                            <div class="book-author">by ${book.author}</div>
+                        </div>
+                        <div class="stock-badge ${stockClass}">${status}</div>
+                    </div>
+                    <div class="book-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Category</span>
+                            <span class="detail-value">${book.category}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Stock</span>
+                            <span class="detail-value">${book.stock} units</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Publisher</span>
+                            <span class="detail-value">${book.publisher}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Year</span>
+                            <span class="detail-value">${book.year}</span>
+                        </div>
+                    </div>
+                    <div class="book-price">LKR ${book.price.toFixed(2)}</div>
+                </div>
+            `;
+            booksGrid.insertAdjacentHTML("beforeend", card);
+        });
+    }
+
+    function updateDashboardStats(books) {
+        const totalBooks = books.length;
+        const inStock = books.filter(book => book.stock > 5).length;
+        const lowStock = books.filter(book => book.stock > 0 && book.stock <= 5).length;
+        const outOfStock = books.filter(book => book.stock === 0).length;
+
+        document.getElementById("totalBooks").textContent = totalBooks;
+        document.getElementById("inStock").textContent = inStock;
+        document.getElementById("lowStock").textContent = lowStock;
+        document.getElementById("outOfStock").textContent = outOfStock;
+    }
+
+    addBookForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+
+        fetch("<%=request.getContextPath()%>/addBook", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            formMessage.style.display = "block";
+            if (data.success) {
+                formMessage.className = "form-message success";
+                formMessage.textContent = "Book added successfully!";
+                addBookForm.reset();
+                previewImg.src = "";
+                previewImg.style.display = "none";
+                fetchBooks();
+            } else {
+                formMessage.className = "form-message error";
+                formMessage.textContent = "Error adding book: " + data.message;
+            }
+        })
+        .catch(error => {
+            formMessage.style.display = "block";
+            formMessage.className = "form-message error";
+            formMessage.textContent = "Error adding book: " + error.message;
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", fetchBooks);
+</script>
 
 <style>
     /* Content Area */
@@ -495,8 +639,8 @@
 
     .stat-change.neutral { color: #666; }
     
-/*    tab styles*/
-     .tab-nav {
+    /* Tab styles */
+    .tab-nav {
         display: flex;
         gap: 10px;
         margin-bottom: 20px;
@@ -623,8 +767,8 @@
     /* Books Grid */
     .books-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Reduced from 250px to 220px */
-        gap: 15px; /* Reduced from 20px to 15px */
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 15px;
         margin-bottom: 30px;
         margin-top: 2rem;
     }
@@ -632,12 +776,12 @@
     .book-card {
         background: white;
         border-radius: 12px;
-        padding: 15px; /* Reduced from 15px to 10px */
+        padding: 15px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         transition: all 0.3s ease;
         position: relative;
-        overflow: hidden; /* Changed from hidden to auto to allow content to scroll if needed */
-        height: 400px; /* Reduced from 400px to 350px */
+        overflow: hidden;
+        height: 400px;
     }
 
     .book-card:hover {
@@ -647,39 +791,39 @@
 
     .book-image {
         width: 100%;
-        height: 180px; /* Reduced from 200px to 180px */
+        height: 180px;
         object-fit: cover;
         border-radius: 8px 8px 0 0;
-        margin-bottom: 8px; /* Reduced from 10px to 8px */
+        margin-bottom: 8px;
     }
 
     .book-header {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        margin-bottom: 8px; /* Reduced from 10px to 8px */
+        margin-bottom: 8px;
     }
 
     .book-title {
-        font-size: 14px; /* Reduced from 16px to 14px */
+        font-size: 14px;
         font-weight: bold;
         color: #333;
-        margin-bottom: 4px; /* Reduced from 5px to 4px */
+        margin-bottom: 4px;
         line-height: 1.3;
     }
 
     .book-author {
         color: #666;
-        font-size: 10px; /* Reduced from 12px to 10px */
+        font-size: 10px;
         margin-bottom: 8px;
     }
 
     .book-details {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 8px; /* Reduced from 8px to 6px */
-        margin-bottom: 8px; /* Reduced from 10px to 8px */
-        overflow: hidden; /* Ensure details don't overflow */
+        gap: 8px;
+        margin-bottom: 8px;
+        overflow: hidden;
     }
 
     .detail-item {
@@ -688,33 +832,33 @@
     }
 
     .detail-label {
-        font-size: 9px; /* Reduced from 10px to 9px */
+        font-size: 9px;
         color: #888;
         text-transform: uppercase;
         letter-spacing: 0.5px;
     }
 
     .detail-value {
-        font-size: 12px; /* Reduced from 12px to 10px */
+        font-size: 12px;
         font-weight: 500;
         color: #333;
         margin-top: 2px;
     }
 
     .book-price {
-        font-size: 16px; /* Reduced from 18px to 16px */
+        font-size: 16px;
         font-weight: bold;
-        color: #2ecc71; /* Green color confirmed */
+        color: #2ecc71;
         text-align: center;
-        margin: 8px 0; /* Reduced from 10px to 8px */
-        display: block; /* Ensure it displays as a block element */
+        margin: 8px 0;
+        display: block;
     }
 
     .stock-badge {
         display: inline-block;
-        padding: 3px 10px; /* Reduced from 4px 12px to 3px 10px */
+        padding: 3px 10px;
         border-radius: 20px;
-        font-size: 9px; /* Reduced from 10px to 9px */
+        font-size: 9px;
         font-weight: 500;
         text-transform: uppercase;
     }
@@ -906,7 +1050,8 @@
     }
 
     .form-group:nth-child(1),
-    .form-group:nth-child(9) {
+    .form-group:nth-child(9),
+    .form-group:nth-child(10) {
         grid-column: 1 / -1;
     }
 
@@ -955,6 +1100,28 @@
     .add-book-btn:hover {
         background: linear-gradient(135deg, #C8A8E0, #B595D8);
         transform: translateY(-2px);
+    }
+
+    .image-preview {
+        margin-top: 10px;
+    }
+
+    .form-message {
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        text-align: center;
+    }
+
+    .form-message.success {
+        background-color: #d4edda;
+        color: #155724;
+    }
+
+    .form-message.error {
+        background-color: #f8d7da;
+        color: #721c24;
     }
 
     /* Books table section styles */
@@ -1116,7 +1283,6 @@
         transform: translateY(-1px);
     }
 
-
     /* Responsive Design */
     @media (max-width: 1200px) {
         .dashboard-stats {
@@ -1132,10 +1298,10 @@
             font-size: 1.8rem;
         }
         .books-grid {
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Reduced from 200px to 180px */
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         }
         .book-card {
-            height: 350px; /* Reduced from 350px to 300px */
+            height: 350px;
         }
     }
 
@@ -1156,10 +1322,10 @@
             min-width: auto;
         }
         .books-grid {
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Reduced from 180px to 160px */
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
         }
         .book-card {
-            height: 320px; /* Reduced from 320px to 280px */
+            height: 320px;
         }
     }
 
@@ -1175,7 +1341,7 @@
             grid-template-columns: 1fr;
         }
         .book-card {
-            height: 250px; /* Reduced from 250px to 220px */
+            height: 250px;
         }
         .form-row {
             grid-template-columns: 1fr;
